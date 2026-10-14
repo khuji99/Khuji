@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khuji - খুঁজুন, কিনুন, বিক্রি করুন</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #087f5b;
+      color: white;
+      padding: 20px 7%;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .post-button {
+      background: #fff;
+      color: #087f5b;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 55px 20px;
+      background: #e2f5ed;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      display: flex;
+      max-width: 600px;
+      margin: auto;
+      gap: 8px;
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 0;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      background: #087f5b;
+      color: white;
+      border: none;
+      padding: 0 22px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+    }
+
+    .category {
+      background: white;
+      border-radius: 12px;
+      padding: 25px 12px;
+      text-align: center;
+      box-shadow: 0 2px 10px #00000008;
+    }
+
+    .category span {
+      display: block;
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .category p {
+      font-weight: bold;
+    }
+
+    .welcome {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 35px;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+      background: #183b32;
+      color: white;
+    }
+
+    @media (max-width: 500px) {
+      .hero h1 {
+        font-size: 27px;
+      }
+
+      .search-box button {
+        padding: 0 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="topbar">
+      <div class="logo">🛍️ Khuji</div>
+      <button class="post-button" onclick="postAd()">
+        + বিজ্ঞাপন দিন
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>আপনার প্রয়োজনীয় জিনিস খুঁজুন!</h1>
+    <p>কিনুন, বিক্রি করুন—নিজের এলাকার মধ্যেই।</p>
+
+    <div class="search-box">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="কী খুঁজছেন? যেমন: মোবাইল, সাইকেল..."
+      >
+      <button onclick="searchProducts()">খুঁজুন</button>
+    </div>
+  </section>
+
+  <main>
+    <h2>জনপ্রিয় ক্যাটাগরি</h2>
+
+    <div class="categories">
+      <div class="category" data-category="মোবাইল ও ইলেকট্রনিকস">
+        <span>📱</span>
+        <p>মোবাইল ও ইলেকট্রনিকস</p>
+      </div>
+
+      <div class="category" data-category="পোশাক">
+        <span>👕</span>
+        <p>পোশাক</p>
+      </div>
+
+      <div class="category" data-category="আসবাবপত্র">
+        <span>🪑</span>
+        <p>আসবাবপত্র</p>
+      </div>
+
+      <div class="category" data-category="বাসা ও রুম">
+        <span>🏠</span>
+        <p>বাসা ও রুম</p>
+      </div>
+
+      <div class="category" data-category="গাড়ি ও বাইক">
+        <span>🏍️</span>
+        <p>গাড়ি ও বাইক</p>
+      </div>
+
+      <div class="category" data-category="অন্যান্য">
+        <span>📦</span>
+        <p>অন্যান্য</p>
+      </div>
+    </div>
+
+    <section class="welcome">
+      <h2>স্বাগতম Khuji-তে!</h2>
+      <p>
+        আপনার এলাকার প্রয়োজনীয় জিনিস খুঁজে পাওয়া এবং
+        নিজের পণ্য বিক্রি করার একটি সহজ প্ল্যাটফর্ম।
+      </p>
+      <p>
+        <strong>আমাদের লক্ষ্য:</strong>
+        সিলেট থেকে শুরু করে পুরো বাংলাদেশের মানুষের জন্য
+        সহজ ও সুবিধাজনক কেনাবেচার ব্যবস্থা তৈরি করা।
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Khuji | খুঁজুন, কিনুন, বিক্রি করুন</p>
+  </footer>
+
+  <script>
+    function searchProducts() {
+      const query = document.getElementById("searchInput").value.trim();
+
+      if (!query) {
+        alert("আপনি কী খুঁজছেন, তা লিখুন।");
+        return;
+      }
+
+      alert("আপনি খুঁজছেন: " + query +
+        "\nপণ্য খোঁজার পূর্ণ ব্যবস্থা পরবর্তী ধাপে তৈরি করব।");
+    }
+
+    function postAd() {
+      alert("বিজ্ঞাপন পোস্ট করার ব্যবস্থা পরবর্তী ধাপে তৈরি করব।");
+    }
+  </script>
+
+</body>
+</html>
